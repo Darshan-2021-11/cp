@@ -1,0 +1,61 @@
+#ifdef ONPC
+	#define _GLIBCXX_DEBUG
+#endif
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+using u32 = unsigned int;
+using ll = long long;
+using ld = long double;
+using indexed_set = tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>;
+
+//mt19937 rnd(239);
+//mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
+
+ll n, f, a, b, t;
+bool possible;
+int solve() {
+	possible = true;
+	cin >> n >> f >> a >> b;
+	ll m[n + 1];
+	m[0] = 0;
+	for (int i = 1; i < n + 1; ++i) {
+		cin >> m[i];
+		t = (m[i] - m[i - 1]);
+		if (t * a > b) {
+			f -= b;
+		} else {
+			f -= t * a;
+		}
+		if (f < 1) possible = false;
+	}
+	cout << (possible ? "YES" : "NO") << '\n';
+	return 0;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int T = 1e9;
+	cin >> T;
+	#ifdef ONPC
+		cout << "__________________________" << '\n';
+	#endif
+	for (int i = 0; i < T; i++) {
+		if (solve()) {
+			break;
+		}
+		#ifdef ONPC
+			cout << "__________________________" << '\n';
+		#endif
+	}
+	#ifdef ONPC
+		cerr << endl << "finished in " << clock() * 1.0 / CLOCKS_PER_SEC <<
+		"second(s)" << '\n';
+	#endif
+}
+

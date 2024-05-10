@@ -1,0 +1,35 @@
+#pragma GCC optimize("Ofast,unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+#include <bits/stdc++.h>
+using namespace std;
+using u32 = unsigned int;
+using u64 = unsigned long long;
+using ll = long long;
+using ld = long double;
+
+int T = 1, n, k, mx, ans, a[(int)2e5];
+int main() {
+  ios::sync_with_stdio(false), cin.tie(nullptr), cout.precision(15), cout.setf(ios::fixed);
+  cin >> T;
+
+  while (T--) {
+    ans = INT_MAX;
+    cin >> n >> k;
+    for (int i = 0; i < n; ++i) {
+      cin >> a[i];
+      a[i] %= k;
+    }
+    sort(a, a + n);
+    n = unique(a, a + n) - a;
+    if (n == 1) {
+      cout << 0 << '\n';
+      continue;
+    }
+    mx = a[n - 1];
+    for (int i = 0; i < n; ++i) {
+      ans = min(mx - a[i], ans);
+      mx = a[i] + k;
+    }
+    cout << ans << '\n';
+  }
+}
