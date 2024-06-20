@@ -1,0 +1,3 @@
+/home/Gamer247/programming/cp/CC/prac/GRAPHCOST.cpp:10:22: warning: ‘lastidx’ defined but not used [-Wunused-variable]
+   10 | static u32 T = 1, n, lastidx;
+      |                      ^~~~~~~
