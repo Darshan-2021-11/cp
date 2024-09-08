@@ -57,7 +57,7 @@ int main() {
   i64 ans = s.size() * (s.size() - 1) >> 1, p;
   stk.push({ 0, 0 });
   for (i32 i = 1; i < s.size(); ++i, b = false) {
-    while (stk.size() && stk.top()[0] > s.lcp[i]) {
+    while (stk.top()[0] > s.lcp[i]) {
       b = true;
       y = stk.top(); stk.pop();
       p = max(s.lcp[i], stk.top()[0]);
