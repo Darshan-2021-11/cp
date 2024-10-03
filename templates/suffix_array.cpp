@@ -1,9 +1,11 @@
 using i32 = int;
+using i64 = long long int;
+
 template <i32 SIZE>
 struct suffix_array {
   i32 p[SIZE + 1], c[SIZE + 1], lcp[SIZE + 1], _n; char data[SIZE + 1];
   suffix_array() noexcept : _n(0) {}
-  suffix_array(const char *source, i32 size) noexcept : _n(size) { copy(source, source + size, data); make(); }
+  explicit suffix_array(const char *source, i32 size) noexcept : _n(size) { copy(source, source + size, data); make(); }
   /**
    * @brief Custom input function for `data` of suffix array
    */
