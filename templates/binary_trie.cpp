@@ -1,10 +1,4 @@
-#pragma GCC optimize("O3,unroll-loops")
 #include <bits/stdc++.h>
-using namespace std;
-using i32 = int;       using u32 = unsigned int;       using f32 = float;
-using i64 = long long; using u64 = unsigned long long; using f64 = double;
-using i128 = __int128; using u128 = unsigned __int128; using f128 = long double;
-
 template <typename T, int LOG2, bool asSet>
 struct Binary_Trie {
   struct Node {
@@ -78,25 +72,3 @@ struct Binary_Trie {
     }
   }
 };
-
-int main() {
-  ios::sync_with_stdio(false), cin.tie(nullptr), cout.precision(15), cout.setf(ios::fixed);
-  int n;
-  cin >> n;
-  Binary_Trie<u32, 29, 1> bt;
-  for (int i = 0; i < n; ++i) {
-    int op, t;
-    cin >> op >> t;
-    switch(op) {
-      case 0:
-        bt.insert(t);
-        break;
-      case 1:
-        bt.remove(t);
-        break;
-      case 2:
-        cout << bt.find_min_XOR(t) << '\n';
-        break;
-    }
-  }
-}
