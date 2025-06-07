@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios::sync_with_stdio(false), cin.tie(nullptr), cout.precision(15), cout.setf(ios::fixed);
+	int TC = 1;
+	cin >> TC;
+	while (TC--) {
+		string s;
+		cin >> s;
+		s.pop_back();
+		s.back() = 'i';
+		cout << s << endl;
+	}
+}
