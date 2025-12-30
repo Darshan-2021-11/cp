@@ -1,0 +1,8 @@
+0
+1 LL
+1 RRRRRL
+1 RL
+0
+0
+0
+1 RRR
